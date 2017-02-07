@@ -1,0 +1,35 @@
+html, body {
+    margin: 0;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    background-color: lavender;
+}
+#list{
+    height: 80%;
+    min-height: 80vh;
+    background-color: beige;
+}
+
+#addContact{
+    height: 20%;
+    min-height: 20vh;
+    background-color: blueviolet;
+}
+
+input {
+    width: 150px;
+    margin: 15px;
+    height: 40px;
+    font-size: 16px;
+}
+ #btnAddContact{
+     font-size: 16px;
+     margin: 15px;
+     height: 40px;
+     border-radius: 5px;
+     border: 1px solid black;
+ }
+
+
