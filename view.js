@@ -11,7 +11,7 @@
     function createUI() {
         var listDiv = $("#list");
         var btnAddContact = $("#btnAddContact");
-        btnAddContact.click();
+        btnAddContact.click(getInputs);
         var contacts = contactList.getContacts();
         var list = $("<ul></ul>");
         for (var i = 0; i < contacts.length; i++){
@@ -21,11 +21,15 @@
     }
 
     function getInputs(){
-        var enteredName = $("#name").val();
-        var enteredNumber = $("#number").val();
+        var inputName = $("#name");
+        var inputNumber = $("#number");
+        var enteredName = inputName.val();
+        var enteredNumber = inputNumber.val();
         if (enteredName.length > 0){
             addContactToList(enteredName, enteredNumber);
         }
+        inputName.val("");
+        inputNumber.val("");
     }
     function addContactToList(name, telephoneNumber){
         var newContact = contactList.addNewContact(name, telephoneNumber);
@@ -49,11 +53,17 @@
                         </li>`;
         var listElement = $(template);
         listElement.attr("data-id", index);
+        listElement.find(".nameField").text(contact.getContactName());
+        listElement.find(".numberField").text(contact.getContactNumber());
+        listElement.find(".btnDelete").click(deleteContact);
         $("ul").append(listElement);
 
     }
 
-    function deleteContact(index) {
-
+    function deleteContact() {
+        var parentLi = $(this).parents("li");
+        var index = parentLi.attr("data-id");
+        contactList.deleteContactByIndex(index);
+        parentLi.remove();
     }
 })(jQuery);

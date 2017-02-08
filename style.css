@@ -32,4 +32,23 @@ input {
      border: 1px solid black;
  }
 
+ul{
+    list-style-type: none;
+}
 
+li{
+   margin-top: 15px;
+}
+
+table td{
+    width: 100px;
+}
+
+.btnDelete{
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+    width: 50px;
+    background-color: lavender;
+    text-align: center;
+    font-weight: 200;
+}
